@@ -4,5 +4,5 @@ library: false
 language: java
 path: .github/codeql/queries
 queries:
-  - name: pwd
-    file: pwd.ql
+  - name: pwdd
+    file: pwdd.ql
