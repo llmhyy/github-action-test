@@ -1,7 +1,7 @@
 name: abc
 version: 0.0.1
 library: false
-language: java
+libraryPathDependencies: codeql-java
 path: .github/codeql/queries
 queries:
   - name: pwdd
