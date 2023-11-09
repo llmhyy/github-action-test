@@ -1,7 +1,6 @@
-name: my-repo/my-java-model-pack
-version: 1.2.3
-extensionTargets:
-  codeql/java-all: ~1.2.3
-  codeql/util: ~4.5.6
-dataExtensions:
-  - models/**/*.yml
+name: my-custom-queries
+version: 0.0.1
+library: false
+language: java
+queries:
+  - ./pwd.ql
