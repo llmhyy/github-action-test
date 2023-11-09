@@ -24,7 +24,7 @@ public class VulnerableApp {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    } 
 
     public static void main(String[] args) {
         new VulnerableApp().searchProducts();
