@@ -4,29 +4,41 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Scanner;
 
-public class VulnerableApp {
+public class SqlInjectionExample {
 
-    public void searchProducts() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter product name to search:");
-        String productName = scanner.nextLine();
+    public void doLogin(String user, String pass) {
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/test?" + "user=myuser&password=mypass");
 
-        String query = "SELECT * FROM products WHERE name = '" + productName + "'";
+            // Unsafe SQL query constructed by concatenating strings.
+            String query = "SELECT * FROM users WHERE user = '" + user + "' AND password = '" + pass + "'";
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/test", "user", "pass");
-             Statement statement = connection.createStatement()) {
+            stmt = conn.createStatement();
+            stmt.executeQuery(query);
 
-            // WARNING: This statement is vulnerable to SQL injection
-            statement.executeQuery(query);
+            // ...
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException se) {
+            // Handle errors for JDBC
+            se.printStackTrace();
+        } finally {
+            // Finally block used to close resources
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException se2) {
+            }
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
         }
-    } 
-
-    public static void main(String[] args) {
-        new VulnerableApp().searchProducts();
     }
 }
