@@ -1,11 +1,3 @@
-/**
- * @name Hardcoded password
- * @description Finding hardcoded passwords is security-sensitive
- * @kind problem
- * @problem.severity error
- * @id java/hardcoded-password
- */
-
 import java
 
 from Variable v, StringLiteral s
