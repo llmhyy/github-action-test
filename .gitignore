@@ -28,3 +28,4 @@ target/.vs/target/FileContentIndex/b898d735-f5c2-4b1e-8f40-8cc94ee85c6e.vsidx
 target/.vs/target/FileContentIndex/read.lock
 target/classes/.gitignore
 target/test-classes/.gitignore
+.github/codeql/queries/qlpack.yml.bak

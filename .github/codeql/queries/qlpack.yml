@@ -1,0 +1,5 @@
+name: my-custom-queries
+version: 0.0.1
+library: false  # 如果这是一个查询库则设置为 true
+queries: ./     # 查询的路径，'./' 表示当前目录
+language: java  # 指定查询的目标编程语言
