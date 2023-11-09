@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    # 扫描指定分支的 PR
+    # 对哪些分支的 PR 进行扫描
     branches: [ main ]
   schedule:
-    # 定期运行 CodeQL 扫描，例如每周一
-    - cron: '0 0 * * 1'
+    # 设置一个定时任务，例如每周自动运行 CodeQL 扫描
+    - cron: '0 14 * * 1'  # 每周一下午2点 UTC
 
 jobs:
   analyze:
@@ -18,18 +18,30 @@ jobs:
       contents: read
       security-events: write
 
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['java']
+        # 如果需要，可以添加其他语言
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+    
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: 11
+        distribution: 'temurin'  # 或者其他你所使用的JDK分发版本
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
 
-    - name: Build
-      run: |
-        # 这里添加你的构建命令
-        make bootstrap
-        make release
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+      # 如果 CodeQL 不能自动检测到构建系统，你需要自定义构建步骤
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
