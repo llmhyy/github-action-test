@@ -1,0 +1,5 @@
+/bin/
+/.classpath
+/.project
+.github/workflows/learn-github-actions.yml.bak
+.github/workflows/sonarcloud.yml.bak
