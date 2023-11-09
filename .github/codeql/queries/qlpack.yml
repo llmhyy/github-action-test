@@ -1,7 +1,8 @@
-name: My CodeQL Pack
+name: abc
 version: 1.0
-path:
-  - .github/codeql/queries
+library: false
+language: java
+path: .github/codeql/queries
 queries:
   - name: pwd
     file: pwd.ql
