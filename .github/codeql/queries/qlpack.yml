@@ -2,5 +2,4 @@ name: my-custom-queries
 version: 0.0.1
 library: false
 language: java
-queries:
-  - ./pwd.ql
+queries: ./pwd.ql
