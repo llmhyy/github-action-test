@@ -34,7 +34,8 @@ public class ResourceLeakExample {
 //    }
 	
 	public static void main(String[] args) {
-        String password = "12345"; 
+		String password;
+        password = "12345"; 
         System.out.println(password);
     }
 
