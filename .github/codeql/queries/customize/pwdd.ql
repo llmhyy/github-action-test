@@ -1,4 +1,5 @@
 /**
+ * @id java/hardcoded-password
  * @kind problem
  * @problem.severity error
  * @language java
