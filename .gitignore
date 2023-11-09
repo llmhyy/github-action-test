@@ -30,3 +30,4 @@ target/classes/.gitignore
 target/test-classes/.gitignore
 .github/codeql/queries/qlpack.yml.bak
 .github/codeql/queries/customize/pwdd.ql.bak
+.github/codeql/queries/customize/qlpack.yml.bak
