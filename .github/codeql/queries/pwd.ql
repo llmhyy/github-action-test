@@ -1,3 +1,9 @@
+/**
+ * @kind problem
+ * @problem.severity error
+ * @language java
+ */
+
 import java
 
 from Variable v, StringLiteral s
