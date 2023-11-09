@@ -1,5 +1,7 @@
-name: my-custom-queries
-version: 0.0.1
-library: false
-language: java
-queries: ./pwd.ql
+name: My CodeQL Pack
+version: 1.0
+path:
+  - .github/codeql/queries
+queries:
+  - name: pwd
+    file: pwd.ql
