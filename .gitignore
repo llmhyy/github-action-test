@@ -29,3 +29,4 @@ target/.vs/target/FileContentIndex/read.lock
 target/classes/.gitignore
 target/test-classes/.gitignore
 .github/codeql/queries/qlpack.yml.bak
+.github/codeql/queries/customize/pwdd.ql.bak
